@@ -9,5 +9,12 @@ body {
 }
 
 .root-wrapper {
+  padding: 1em;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 
+.calc-container {
+  margin: 0 auto;
 }
