@@ -2,14 +2,34 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayState: "",
+      displayState: "0",
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick(event) {
     if (event.target.id === "clear") {
       this.setState({
-        displayState: "",
+        displayState: "0",
+      });
+    } else if (event.target.textContent === ".") {
+      if (this.state.displayState.indexOf(".") === -1) {
+        this.setState({
+          displayState: this.state.displayState + event.target.textContent,
+        });
+      }
+    } else if (event.target.textContent === "0") {
+      if (!this.isInitialZero()) {
+        this.setState({
+          displayState: this.state.displayState + event.target.textContent,
+        });
+      }
+    } else if (
+      this.state.displayState.length === 1 &&
+      this.state.displayState === "0"
+    ) {
+      this.setState({
+        displayState: event.target.textContent,
       });
     } else {
       this.setState({
@@ -17,6 +37,13 @@ class App extends React.Component {
       });
     }
   }
+
+  isInitialZero() {
+    if (this.state.displayState.length === 1) {
+      return this.state.displayState[0] === "0";
+    }
+  }
+
   render() {
     return (
       <div className="calc-container">
@@ -71,9 +98,7 @@ class App extends React.Component {
         <button id="clear" onClick={this.handleClick}>
           clear
         </button>
-        <div id="display" onClick={this.handleClick}>
-          {this.state.displayState}
-        </div>
+        <div id="display">{this.state.displayState}</div>
       </div>
     );
   }
