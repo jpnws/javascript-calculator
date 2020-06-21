@@ -2,16 +2,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayState: "0",
+      displayState: 0,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.parseFormula = this.parseFormula.bind(this);
+    this.isInitialZero = this.isInitialZero.bind(this);
   }
 
   handleClick(event) {
     if (event.target.id === "clear") {
       this.setState({
-        displayState: "0",
+        displayState: 0,
       });
+    } else if (event.target.textContent === "=") {
+      this.parseFormula();
     } else if (event.target.textContent === ".") {
       if (this.state.displayState.indexOf(".") === -1) {
         this.setState({
@@ -35,6 +39,21 @@ class App extends React.Component {
       this.setState({
         displayState: this.state.displayState + event.target.textContent,
       });
+    }
+  }
+
+  parseFormula() {
+    let formula = this.state.displayState;
+    let reg = /[*/+-]{2,}/g;
+    let res = formula.match(reg)[0];
+    if (res[res.length - 1] !== "-") {
+      let op = res[res.length - 1];
+      formula = formula.replace(res, op);
+      console.log(eval(formula));
+    } else {
+      let op = res[res.length - 2];
+      formula = formula.replace(res.slice(0, res.length - 1), op);
+      console.log(eval(formula));
     }
   }
 
@@ -84,10 +103,10 @@ class App extends React.Component {
           -
         </button>
         <button id="multiply" onClick={this.handleClick}>
-          ×
+          *
         </button>
         <button id="divide" onClick={this.handleClick}>
-          ÷
+          /
         </button>
         <button id="equals" onClick={this.handleClick}>
           =
