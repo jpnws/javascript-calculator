@@ -18,3 +18,96 @@ body {
 .calc-container {
   margin: 0 auto;
 }
+
+.display-box {
+  width: 100%;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #eeeeee;
+  font-family: "Nova Mono", monospace;
+  font-size: 2rem;
+  color: #000000;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: right;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+}
+
+.calc-pad {
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem;
+  grid-gap: 0.5rem;
+}
+
+.num-btn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #3b3b3b;
+  font-family: "Nova Mono", monospace;
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: center;
+}
+
+.op-btn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #eeeeee;
+  font-family: "Nova Mono", monospace;
+  font-size: 1.5rem;
+  color: #000000;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: center;
+}
+
+.clr-btn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #ce1b74;
+  font-family: "Nova Mono", monospace;
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: center;
+}
+
+.eval-btn {
+  width: 10.5rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #25e465;
+  font-family: "Nova Mono", monospace;
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: center;
+  grid-column: 2 / 4;
+}
+
+.dot-btn {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #edff49;
+  font-family: "Nova Mono", monospace;
+  font-size: 1.5rem;
+  color: #000000;
+  box-shadow: 0px 0px 15px 0 grey;
+  text-align: center;
+}
+
+.num-btn:hover,
+.num-btn:focus {
+  opacity: 0.9;
+  cursor: pointer;
+}
