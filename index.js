@@ -17,12 +17,18 @@ class App extends React.Component {
     } else if (event.target.textContent === "=") {
       this.parseFormula();
     } else if (event.target.textContent === ".") {
-      let reg = /[*/+-](\d+)/g;
-      let res = this.state.displayState.match(reg);
-      console.log(res);
-      if (this.state.displayState.indexOf(".") === -1) {
+      let dtxt = this.state.displayState;
+      let reg = /[*/+-]/g;
+      let res = dtxt.split(reg);
+      if (res.length > 1) {
+        if (res[res.length - 1].indexOf(".") === -1) {
+          this.setState({
+            displayState: dtxt + event.target.textContent,
+          });
+        }
+      } else if (dtxt.indexOf(".") === -1) {
         this.setState({
-          displayState: this.state.displayState + event.target.textContent,
+          displayState: dtxt + event.target.textContent,
         });
       }
     } else if (event.target.textContent === "0") {
