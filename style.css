@@ -107,7 +107,15 @@ body {
 }
 
 .num-btn:hover,
-.num-btn:focus {
+.num-btn:focus,
+.op-btn:hover,
+.op-btn:focus,
+.clr-btn:hover,
+.clr-btn:focus,
+.eval-btn:hover,
+.eval-btn:focus,
+.dot-btn:hover,
+.dot-btn:focus {
   opacity: 0.9;
   cursor: pointer;
 }
