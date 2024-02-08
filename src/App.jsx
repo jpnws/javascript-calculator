@@ -1,11 +1,18 @@
 import { useState } from 'react';
 
+import NumberButton from './NumberButton';
+import OperationButton from './OperationButton';
+import DotButton from './DotButton';
+import ClearButton from './ClearButton';
+import EqualButton from './EqualButton';
+import DisplayBox from './DisplayBox';
+
 export default function App() {
   const [displayState, setDisplayState] = useState('0');
 
   function handleClick(event) {
     if (event.target.id === 'clear') {
-      setDisplayState({ displayState: '0' });
+      setDisplayState('0');
     } else if (event.target.textContent === '=') {
       parseFormula();
     } else if (event.target.textContent === '.') {
@@ -58,132 +65,81 @@ export default function App() {
 
   return (
     <div className="calc-container">
-      <div
-        className="display-box"
-        id="display"
-      >
-        {displayState}
-      </div>
+      <DisplayBox displayState={displayState} />
       <div className="calc-pad">
-        <button
-          className="num-btn"
-          id="zero"
-          onClick={handleClick}
-        >
-          0
-        </button>
-        <button
-          className="num-btn"
-          id="one"
-          onClick={handleClick}
-        >
-          1
-        </button>
-        <button
-          className="num-btn"
-          id="two"
-          onClick={handleClick}
-        >
-          2
-        </button>
-        <button
-          className="num-btn"
-          id="three"
-          onClick={handleClick}
-        >
-          3
-        </button>
-        <button
-          className="num-btn"
-          id="four"
-          onClick={handleClick}
-        >
-          4
-        </button>
-        <button
-          className="num-btn"
-          id="five"
-          onClick={handleClick}
-        >
-          5
-        </button>
-        <button
-          className="num-btn"
-          id="six"
-          onClick={handleClick}
-        >
-          6
-        </button>
-        <button
-          className="num-btn"
-          id="seven"
-          onClick={handleClick}
-        >
-          7
-        </button>
-        <button
-          className="num-btn"
-          id="eight"
-          onClick={handleClick}
-        >
-          8
-        </button>
-        <button
-          className="num-btn"
-          id="nine"
-          onClick={handleClick}
-        >
-          9
-        </button>
-        <button
-          className="op-btn"
-          id="add"
-          onClick={handleClick}
-        >
-          +
-        </button>
-        <button
-          className="op-btn"
-          id="subtract"
-          onClick={handleClick}
-        >
-          -
-        </button>
-        <button
-          className="op-btn"
-          id="multiply"
-          onClick={handleClick}
-        >
-          *
-        </button>
-        <button
-          className="op-btn"
-          id="divide"
-          onClick={handleClick}
-        >
-          /
-        </button>
-        <button
-          className="dot-btn"
-          id="decimal"
-          onClick={handleClick}
-        >
-          .
-        </button>
-        <button
-          className="clr-btn"
-          id="clear"
-          onClick={handleClick}
-        >
-          Clear
-        </button>
-        <button
-          className="eval-btn"
-          id="equals"
-          onClick={handleClick}
-        >
-          =
-        </button>
+        <NumberButton
+          number={0}
+          numberText={'zero'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={1}
+          numberText={'one'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={2}
+          numberText={'two'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={3}
+          numberText={'three'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={4}
+          numberText={'four'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={5}
+          numberText={'five'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={6}
+          numberText={'six'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={7}
+          numberText={'seven'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={8}
+          numberText={'eight'}
+          onButtonClick={handleClick}
+        />
+        <NumberButton
+          number={9}
+          numberText={'nine'}
+          onButtonClick={handleClick}
+        />
+        <OperationButton
+          opSymbol={'+'}
+          opText={'add'}
+          onButtonClick={handleClick}
+        />
+        <OperationButton
+          opSymbol={'-'}
+          opText={'subtract'}
+          onButtonClick={handleClick}
+        />
+        <OperationButton
+          opSymbol={'*'}
+          opText={'multiply'}
+          onButtonClick={handleClick}
+        />
+        <OperationButton
+          opSymbol={'/'}
+          opText={'divide'}
+          onButtonClick={handleClick}
+        />
+        <DotButton onButtonClick={handleClick} />
+        <ClearButton onButtonClick={handleClick} />
+        <EqualButton onButtonClick={handleClick} />
       </div>
     </div>
   );
