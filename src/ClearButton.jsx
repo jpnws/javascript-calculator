@@ -7,7 +7,7 @@ export default function ClearButton({ onButtonClick }) {
       id="clear"
       onClick={onButtonClick}
     >
-      Clear
+      C
     </button>
   );
 }
