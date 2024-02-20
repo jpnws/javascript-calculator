@@ -2,7 +2,9 @@
 
 ## Overview
 
-The JavaScript Calculator is a React-based application designed for performing basic arithmetic operations. It leverages modern web technologies including React, HTML, CSS, and JavaScript to offer a responsive and intuitive user interface. This project highlights proficiency in frontend development, showcasing skills in UI design, state management, and event handling.
+The JavaScript Calculator is a React-based application designed for performing
+basic arithmetic operations. It leverages modern web technologies including
+React, HTML, CSS, and JavaScript.
 
 ## Technologies Used
 
